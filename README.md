@@ -31,6 +31,12 @@ ____
 
 ---
 
+## Link del proyecto:
+
+### https://melomario57.github.io/web_project_around_react/
+
+---
+
 ## Tecnología principal utilizada:
 
 <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
