@@ -17,6 +17,10 @@
     height: 100%;
     position: fixed;
   }
+  .popup__avatar {
+    width: 430px;
+    height: 150px;
+  }
 
   .popup__container {
     transform: translate(-50%, -50%);
@@ -34,7 +38,7 @@
     display: flex;
     transform: translate(-50%, -50%);
     position: fixed;
-    top: 36%;
+    top: 53%;
     left: 50%;
   }
   .popup__image-container-group {
