@@ -22,7 +22,7 @@
   border-radius: 3%;
 }
 
-#avatarForm {
+.avatar__form {
   width: 430px;
   height: 260px;
 }
@@ -103,9 +103,9 @@
     width: 282px;
     height: 322px;
   }
-  #avatarForm {
+  .avatar__form {
     width: 282px;
-    height: 285px;
+    height: 260px;
   }
   .popup__form-button {
     width: 238px;

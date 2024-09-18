@@ -19,7 +19,15 @@
  
 ____
 
-## Que se aprendió?
+## :interrobang: Que se aprendió en está etapa?
+
+1. ### Utilizar los componentes principales para que el marcado "HTML", y los estilos "CSS" se mostrarán correctamente.
+
+2. ### Renderizar los elementos comúnes de los formularios
+
+3. ### En el componente App, colocar la funcionalidad necesaria, para que los formularios, y las imágenes, aparezcan y se cierren al hacer click.
+
+4. ### Vincular las apis para que aparezcan las targetas, y los datos del ususario mediante el uso de los principales hooks (useEffect y userState)
 
 ---
 

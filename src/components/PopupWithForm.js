@@ -1,5 +1,5 @@
 import CloseIcon from "../images/Close.png";
-import "../blocks/form.css";
+
 import React from "react";
 export default function PopupWithForm({
   name,
@@ -17,9 +17,9 @@ export default function PopupWithForm({
         <div className="popup__overlay"></div>
         <div className="popup__container">
           <form
-            className={`popup__form form form_${name} ${
-              name === "profile-button" ? "avatarForm" : ""
-            }`}
+            className={`form form_${name} ${
+              name === "avatar-button" ? "avatar__form" : ""
+            } `}
             method="dialog"
             noValidate
           >

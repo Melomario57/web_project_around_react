@@ -109,7 +109,7 @@ function App() {
         </>
       </PopupWithForm>
       <PopupWithForm
-        name={"profile-button"}
+        name={"avatar-button"}
         title={"Cambiar foto de perfil"}
         buttonTitle={"Guardar"}
         isOpen={isEditAvatarPopupOpen}
