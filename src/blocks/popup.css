@@ -1,27 +1,23 @@
 @media screen and (max-width: 1440px) {
   .popup {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     transition: all 0.4s ease-in-out;
     opacity: 0;
     visibility: hidden;
     z-index: 3;
-    height: 100%;
+
     position: fixed;
-  }
-  .popup__image {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    z-index: 3;
-    height: 100%;
-    position: fixed;
-  }
-  .popup__avatar {
-    width: 430px;
-    height: 150px;
   }
 
+  .popup__overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
   .popup__container {
     transform: translate(-50%, -50%);
     position: fixed;
@@ -93,7 +89,7 @@
   }
   .popup__image-big {
     height: 299px;
-    width: 240px;
+    width: 285px;
   }
   .popup__image-button-cross {
     width: 30px;

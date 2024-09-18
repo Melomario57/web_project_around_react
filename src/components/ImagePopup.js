@@ -4,11 +4,9 @@ export default function ImagePopup({ selectedCard, onClose }) {
     return null;
   }
   return (
-    <section
-      className={selectedCard ? "popup  popup_opened" : ""}
-      id="popupCard"
-    >
-      <div className="popup__image-container popup__container">
+    <section className={selectedCard ? "popup  popup_opened" : ""}>
+      <div className="popup__overlay"></div>
+      <div className=" popup__container">
         <div className="popup__image-container-group">
           <button
             id="imageCross"

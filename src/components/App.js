@@ -32,7 +32,7 @@ function App() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
-    setSelectedCard(null);
+    setSelectedCard(false);
   };
 
   return (
@@ -109,7 +109,6 @@ function App() {
         </>
       </PopupWithForm>
       <PopupWithForm
-        form="#avatarForm "
         name={"profile-button"}
         title={"Cambiar foto de perfil"}
         buttonTitle={"Guardar"}
