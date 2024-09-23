@@ -31,6 +31,18 @@ ____
 
 ---
 
+## Segunda parte:
+
+## :question: Que funcionalidades se implementarán?
+
+### En esta parte se utilizarán nuevos hooks de React que permitirán completar las funcionalidades de cada sección, es decir, que la targetas funcionen completamente(eliminarlas, contador de likes etc), los formularios puedan recibir, y mostrar los datos introducidos. Para lograr todo lo anterior, será necesario vincular las "APIS" restantes para que tales datos seán mostrados correctamente.
+
+---
+
+## :interrobang: Que se aprendió en está etapa?
+
+---
+
 ## Link del proyecto:
 
 ### https://melomario57.github.io/web_project_around_react/
