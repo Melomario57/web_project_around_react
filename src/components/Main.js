@@ -1,45 +1,21 @@
+import CurrentUserContext from "../contexts/CurrentUserContext";
 import React from "react";
-import { useState, useEffect } from "react";
 import Card from "./Card";
 import ImagePopup from "./ImagePopup";
-import api from "../utils/Api";
-
 import EditBtn from "../images/edit.png";
 import Addbtn from "../images/add.png";
 export default function Main({
+  cards,
   onEditAvatarClick,
   onEditProfileClick,
   onAddPlaceClick,
   onCardClick,
   onClose,
   selectedCard,
+  onCardLike,
+  onCardDelete,
 }) {
-  const [userName, setUserName] = useState("");
-  const [userDescription, setUserDescription] = useState("");
-  const [userAvatar, setUserAvatar] = useState("");
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    api
-      .getUserInfo()
-      .then((info) => {
-        setUserName(info.name);
-        setUserDescription(info.about);
-        setUserAvatar(info.avatar);
-      })
-      .catch((invalid) => {
-        console.error("invalid message", invalid);
-      });
-    api
-      .getInitialCards()
-      .then((response) => {
-        setCards(response);
-      })
-      .catch((invalid) => {
-        console.error("invalid message", invalid);
-      });
-  }, []);
-
+  const CurrentUser = React.useContext(CurrentUserContext);
   return (
     <>
       <section className="profile">
@@ -47,7 +23,7 @@ export default function Main({
           <div className="profile__image-wrapper">
             <img
               className="profile__image"
-              src={userAvatar}
+              src={CurrentUser?.avatar}
               alt="foto de perfil del usuario"
             />
             <button
@@ -56,7 +32,7 @@ export default function Main({
             ></button>
           </div>
           <div className="profile__info">
-            <h1 className="profile__title">{userName}</h1>
+            <h1 className="profile__title">{CurrentUser?.name}</h1>
             <button
               className="profile__edit-button"
               type="button"
@@ -68,7 +44,7 @@ export default function Main({
                 className="profile__edit-button-image"
               />
             </button>
-            <h2 className="profile__subtitle">{userDescription}</h2>
+            <h2 className="profile__subtitle">{CurrentUser?.about}</h2>
           </div>
         </div>
         <button
@@ -96,6 +72,8 @@ export default function Main({
                 onCardClick={onCardClick}
                 onClose={onClose}
                 key={card._id}
+                onCardLike={onCardLike}
+                onCardDelete={onCardDelete}
               ></Card>
             );
           })}

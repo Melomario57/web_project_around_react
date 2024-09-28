@@ -32,7 +32,7 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-  updateUser(name, about) {
+  updateUser({ name, about }) {
     return fetch(this._baseUrl + "/users/me", {
       headers: {
         authorization: this._token,
@@ -50,7 +50,7 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-  addCard(name, link) {
+  addCard({ name, link }) {
     return fetch(this._baseUrl + "/cards", {
       headers: {
         Authorization: this._token,
@@ -68,7 +68,7 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-  updateAvatar(avatar) {
+  updateAvatar({ avatar }) {
     return fetch(this._baseUrl + "/users/me/avatar", {
       headers: {
         Authorization: this._token,
@@ -85,8 +85,8 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-  deleteCard(idCard) {
-    return fetch(this._baseUrl + "/cards/" + idCard, {
+  deleteCard(id) {
+    return fetch(this._baseUrl + "/cards/" + id, {
       headers: {
         Authorization: this._token,
         "Content-Type": "application/json",
@@ -100,13 +100,17 @@ class Api {
     });
   }
 
-  addLike(idCard) {
-    return fetch(this._baseUrl + "/cards/likes/" + idCard, {
+  addLike({ id, isLiked }) {
+    const method = isLiked ? "PUT" : "DELETE";
+    return fetch(this._baseUrl + "/cards/likes/" + id, {
       headers: {
         Authorization: this._token,
         "Content-Type": "application/json",
       },
-      method: "PUT",
+      method: method,
+      body: JSON.stringify({
+        id,
+      }),
     }).then((res) => {
       if (res.ok) {
         return res.json();
@@ -115,8 +119,8 @@ class Api {
     });
   }
 
-  removeLike(idCard) {
-    return fetch(this._baseUrl + "/cards/likes/" + idCard, {
+  removeLike(id) {
+    return fetch(this._baseUrl + "/cards/likes/" + id, {
       headers: {
         Authorization: this._token,
         "Content-Type": "application/json",

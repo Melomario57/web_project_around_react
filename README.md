@@ -35,11 +35,19 @@ ____
 
 ## :question: Que funcionalidades se implementarán?
 
-### En esta parte se utilizarán nuevos hooks de React que permitirán completar las funcionalidades de cada sección, es decir, que la targetas funcionen completamente(eliminarlas, contador de likes etc), los formularios puedan recibir, y mostrar los datos introducidos. Para lograr todo lo anterior, será necesario vincular las "APIS" restantes para que tales datos seán mostrados correctamente.
+### En esta parte se utilizarán nuevos hooks de React que permitirán completar las funcionalidades de cada sección, es decir, que la targetas funcionen completamente(eliminarlas, contador de likes etc), los formularios puedan recibir, su respectiva validación funcione y mostrar los datos introducidos. Para lograr todo lo anterior, será necesario vincular las "APIS" restantes para que tales datos seán mostrados correctamente.
 
 ---
 
 ## :interrobang: Que se aprendió en está etapa?
+
+### Utilizar los nuevos hooks useContext y useRef
+
+### Vincular los Context con las apis correspondientes, para que la solicitudes cumplan sus respectivas funciones.
+
+### Utilizar los hooks aprendidos para que los "popups" se cierren al hacer click fuera de ellos y con la tecla "Escape"
+
+### Implementar el useRef para que los flags permitan que los botones Guardando, y Crea pasen a los estados "Guardando.... y Creando..."
 
 ---
 

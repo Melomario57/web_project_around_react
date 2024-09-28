@@ -26,12 +26,21 @@
   border-top-right-radius: 20px 20px;
 }
 
-.cards__trash-button-image {
+.cards__trash-button {
   width: 18px;
   height: 19px;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  background-color: transparent;
+  border: 0;
 }
 
-.cards__trash-button {
+.card__trash-button_hidden {
+  visibility: hidden;
+}
+
+.card__trash-button_visible {
   width: 18px;
   height: 19px;
   position: absolute;
@@ -39,6 +48,7 @@
   right: 20px;
   background-color: transparent;
   border: 0;
+  visibility: visible;
 }
 
 .cards__trash-button:hover {

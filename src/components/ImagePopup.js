@@ -1,11 +1,12 @@
 import CloseIcon from "../images/Close.png";
+
 export default function ImagePopup({ selectedCard, onClose }) {
   if (!selectedCard) {
     return null;
   }
   return (
     <section className={selectedCard ? "popup  popup_opened" : ""}>
-      <div className="popup__overlay"></div>
+      <div className="popup__overlay" onClick={onClose}></div>
       <div className=" popup__container">
         <div className="popup__image-container-group">
           <button
