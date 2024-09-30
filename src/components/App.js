@@ -4,10 +4,10 @@ import "../index.css";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import Header from "./Header";
 import Main from "./Main";
-import PopupWithForm from "./PopupWithForm";
 import EditAvatarPopup from "./EditAvatarPopup";
 import EditProfilePopup from "./EditProfilePopup";
 import AddPlacePopup from "./AddPlacePopup";
+import ConfirmationPopup from "./ConfirmationPopup";
 
 import Footer from "./Footer";
 import api from "../utils/Api";
@@ -16,8 +16,8 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
+  const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(false);
-  const [confirmation, setConfirmation] = useState(false);
   const [currentUser, setCurrentUser] = useState();
   const [deletedCard, setDeletedCard] = useState({});
   const [cards, setCards] = useState([]);
@@ -34,7 +34,7 @@ function App() {
 
   function handleDeleteCard(card) {
     setDeletedCard(card);
-    setConfirmation(true);
+    setIsConfirmationPopupOpen(true);
   }
 
   useEffect(() => {
@@ -103,8 +103,7 @@ function App() {
       });
   };
 
-  const handleSubmitConfirmation = (evt) => {
-    evt.preventDefault();
+  const handleSubmitConfirmation = () => {
     if (deletedCard) {
       api.deleteCard(deletedCard._id).then(() => {
         setCards((state) => state.filter((c) => c._id !== deletedCard._id));
@@ -129,8 +128,8 @@ function App() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
+    setIsConfirmationPopupOpen(false);
     setSelectedCard(false);
-    setConfirmation(false);
   };
 
   return (
@@ -170,17 +169,15 @@ function App() {
           />
         )}
 
-        <PopupWithForm
-          name={"confirmation-button"}
-          title={"¿Estás seguro/a?"}
-          buttonTitle={"Si"}
-          content={"card"}
-          buttonClass={"delete"}
-          modifier={"delete"}
-          isOpen={confirmation}
-          onClose={closeAllPopups}
-          onSubmit={handleSubmitConfirmation}
-        />
+        {isConfirmationPopupOpen && (
+          <ConfirmationPopup
+            isOpen={isConfirmationPopupOpen}
+            onClose={closeAllPopups}
+            onCardDelete={handleSubmitConfirmation}
+            card={selectedCard}
+          />
+        )}
+
         <Footer />
       </div>
     </CurrentUserContext.Provider>

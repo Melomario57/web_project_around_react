@@ -15,20 +15,13 @@ export default function PopupWithForm({
   modifier,
 }) {
   useEffect(() => {
-    const handleEscClose = (evt) => {
-      if (evt.key == "Escape") {
-        onClose();
-      }
-    };
+    document.addEventListener("keydown", (evt) => {
+      evt.key === "Escape" && onClose();
+    });
     const handleClickOutside = (evt) => {
       if (evt.target === document.querySelector(".popup__overlay")) {
         onClose();
       }
-    };
-    document.addEventListener("keydown", handleEscClose);
-
-    return () => {
-      document.removeEventListener("keydown", handleEscClose);
     };
   }, [onClose]);
 

@@ -23,7 +23,6 @@
 }
 
 .avatar__form {
-  width: 430px;
   height: 260px;
 }
 .confirmation__form {
@@ -106,6 +105,10 @@
   .avatar__form {
     width: 282px;
     height: 260px;
+  }
+
+  .confirmation__form {
+    height: 170px;
   }
   .popup__form-button {
     width: 238px;
