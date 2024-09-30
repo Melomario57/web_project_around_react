@@ -1,11 +1,12 @@
-import { createRef } from "react";
+import { useRef } from "react";
 import PopupWithForm from "./PopupWithForm";
 import { useState } from "react";
 
 export default function AddPlacePopup({ isOpen, onClose, onAddPlaceSubmit }) {
-  const titleRef = createRef();
-  const linkRef = createRef();
+  const titleRef = useRef();
+  const linkRef = useRef();
   const [loading, setLoading] = useState(false);
+
   function handleSubmit(evt) {
     evt.preventDefault();
     setLoading(true);

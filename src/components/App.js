@@ -58,21 +58,34 @@ function App() {
   }, []);
 
   const handleUpdateAvatar = (avatar) => {
-    return api.updateAvatar(avatar).then((updateUser) => {
-      setCurrentUser(updateUser);
-      setIsEditAvatarPopupOpen(false);
-    });
+    return api
+      .updateAvatar(avatar)
+      .then((updateUser) => {
+        setCurrentUser(updateUser);
+      })
+      .then(() => {
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleUpdateUser = ({ name, about }) => {
     return api
       .updateUser({ name, about })
-      .then((newUserInfo) => {
-        setCurrentUser(newUserInfo);
-        setIsEditProfilePopupOpen(false);
+      .then(() => {
+        setCurrentUser({
+          ...currentUser,
+          name,
+          about,
+        });
+      })
+      .then(() => {
+        closeAllPopups();
       })
       .catch((error) => {
-        console.error("Invalid", error);
+        console.log("Invalid", error);
       });
   };
 
@@ -81,10 +94,12 @@ function App() {
       .addCard({ name, link })
       .then((newCard) => {
         setCards([newCard, ...cards]);
-        setIsAddPlacePopupOpen(false);
+      })
+      .then(() => {
+        closeAllPopups();
       })
       .catch((error) => {
-        console.error("Invalid", error);
+        console.log("Invalid", error);
       });
   };
 
@@ -133,21 +148,27 @@ function App() {
           onCardLike={handleCardLike}
           onCardDelete={handleDeleteCard}
         />
-        <EditProfilePopup
-          isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-          onUpdateUser={handleUpdateUser}
-        />
-        <AddPlacePopup
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
-          onAddPlaceSubmit={handleAddPlaceSubmit}
-        />
-        <EditAvatarPopup
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          onUpdateAvatar={handleUpdateAvatar}
-        />
+        {isEditProfilePopupOpen && (
+          <EditProfilePopup
+            isOpen={isEditProfilePopupOpen}
+            onClose={closeAllPopups}
+            onUpdateUser={handleUpdateUser}
+          />
+        )}
+        {isAddPlacePopupOpen && (
+          <AddPlacePopup
+            isOpen={isAddPlacePopupOpen}
+            onClose={closeAllPopups}
+            onAddPlaceSubmit={handleAddPlaceSubmit}
+          />
+        )}
+        {isEditAvatarPopupOpen && (
+          <EditAvatarPopup
+            isOpen={isEditAvatarPopupOpen}
+            onClose={closeAllPopups}
+            onUpdateAvatar={handleUpdateAvatar}
+          />
+        )}
 
         <PopupWithForm
           name={"confirmation-button"}

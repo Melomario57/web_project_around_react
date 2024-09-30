@@ -11,8 +11,6 @@ export default function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
     setLoading(true);
     onUpdateAvatar({
       avatar: avatarRef.current.value,
-    }).finally(() => {
-      setLoading(false);
     });
   }
 

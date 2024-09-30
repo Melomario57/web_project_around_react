@@ -11,9 +11,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   function handleSubmit(evt) {
     evt.preventDefault();
     setLoading(true);
-    onUpdateUser({ name, about: description }).finally(() => {
-      setLoading(false);
-    });
+    onUpdateUser({ name, about: description });
   }
 
   useEffect(() => {
@@ -49,6 +47,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
           minLength="2"
           maxLength="40"
           onChange={handleInputName}
+          value={name}
         />
         <span className="form__error_name form__error"></span>
         <input
@@ -61,6 +60,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
           minLength="2"
           maxLength="200"
           onChange={handleInputDescription}
+          value={description}
         />
         <span className="form__error_about form__error"></span>
       </>
