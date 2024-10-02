@@ -22,6 +22,17 @@ function App() {
   const [deletedCard, setDeletedCard] = useState({});
   const [cards, setCards] = useState([]);
 
+  useEffect(() => {
+    document.addEventListener("keydown", (evt) => {
+      evt.key === "Escape" && closeAllPopups();
+    });
+    const handleClickOutside = (evt) => {
+      if (evt.target === document.querySelector(".popup__overlay")) {
+        closeAllPopups();
+      }
+    };
+  }, []);
+
   const handleCardLike = (card) => {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
     api

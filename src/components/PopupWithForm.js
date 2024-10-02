@@ -14,17 +14,6 @@ export default function PopupWithForm({
   buttonForm,
   modifier,
 }) {
-  useEffect(() => {
-    document.addEventListener("keydown", (evt) => {
-      evt.key === "Escape" && onClose();
-    });
-    const handleClickOutside = (evt) => {
-      if (evt.target === document.querySelector(".popup__overlay")) {
-        onClose();
-      }
-    };
-  }, [onClose]);
-
   const formRef = useRef();
   const formConfig = {
     formSelector: ".popup__form",
