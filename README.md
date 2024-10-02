@@ -49,6 +49,8 @@ ____
 
 ### Implementar el useRef para que los flags permitan que los botones Guardando, y Crea pasen a los estados "Guardando.... y Creando..."
 
+### Cambiar la estructura de las apis, es decir refactorizando el código del archivo "api.js", esto ayudaría mucho en proyectos más grandes, si se busca trabajar con otras solicitudes(Axios por ejemplo)
+
 ---
 
 ## Link del proyecto:
